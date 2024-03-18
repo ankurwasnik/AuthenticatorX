@@ -1,5 +1,6 @@
 package com.ankurwasnik.arcosauthenticator.compose.component.support
 
+import android.content.Context
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
