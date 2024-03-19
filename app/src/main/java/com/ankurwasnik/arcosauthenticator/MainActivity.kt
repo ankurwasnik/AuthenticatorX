@@ -24,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ankurwasnik.arcosauthenticator.ui.theme.ArcosAuthenticatorTheme
 import com.ankurwasnik.arcosauthenticator.compose.screen.HomeScreen
 import com.ankurwasnik.arcosauthenticator.compose.screen.AboutScreen
+import com.ankurwasnik.arcosauthenticator.compose.screen.NewGenerateOTPScreen
 import com.ankurwasnik.arcosauthenticator.compose.screen.VerifyPassCodeScreen
 import com.ankurwasnik.arcosauthenticator.compose.screen.SettingScreen
 import com.ankurwasnik.arcosauthenticator.compose.screen.SupportScreen
@@ -49,7 +50,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ArcosAuthenticatorApp() {
     // nav controller
@@ -62,7 +62,8 @@ fun ArcosAuthenticatorApp() {
     var isPassCodeSet  by remember {
         mutableStateOf(sharedPreferenceManager.getData("isPassCodeSet","false"))
     }
-    var startDestination :String = "VerifyPasscode"
+//    var startDestination :String = "VerifyPasscode"
+    var startDestination :String = "NewOTP"
     if(isPassCodeSet == "false"){
         startDestination = "SetNewPasscode"
     }
@@ -134,6 +135,11 @@ fun ArcosAuthenticatorApp() {
 
             composable("About"){
                 AboutScreen()
+            }
+
+
+            composable("NewOTP"){
+                NewGenerateOTPScreen()
             }
             
         }
